@@ -5,6 +5,7 @@ import algaworks.pagamento.Cartao;
 import algaworks.pagamento.Operadora;
 
 public class Checkout {
+    
     private Operadora operadora;
     private Impressora impressora;
 
@@ -15,13 +16,12 @@ public class Checkout {
 
     public void fecharCompra(Compra compra, Cartao cartao){
         boolean autorizado = this.operadora.autorizar(compra,cartao);
-        if (autorizado){
+        if (autorizado) {
             this.impressora.imprimir(compra);
         } else {
             System.out.println("Pagamento negado");
         }
     }
-
 
     public Operadora getOperadora() {
         return operadora;
